@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions account="4">
+  <order sym="A" amount="10" limit="100"/>
+  <order sym="B" amount="-10" limit="100"/>
+ </transactions>

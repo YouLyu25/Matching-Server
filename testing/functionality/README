@@ -1,0 +1,18 @@
+These test cases are used for functionality testing.
+The .xml files are used to simulate the XML requests and will be
+read and sent by the testing program.
+
+The test cases incoporate various of possible operations which may
+be sent by the clients.
+
+To run the test cases, first use "sudo docker-compose up" to start
+the server and then, on a different machine, use:
+./client testX.xml
+to send the request and wait for the results.
+
+Note that the "X" in "textX" indicates the current number of test
+cases. Also, if the server is run in a different machine, the hard-
+coded server address in client.cpp has to be changed to the current
+server address and the program has to be re-made.
+
+The expected/testing results are shown in result.xml

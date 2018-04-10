@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<create>
+  <account id="1" balance="10000"/>
+  <account id="2" balance="10000"/>
+  <account id="1" balance="10000"/>
+  <account id="4" balance="10000"/>
+  <symbol sym="A">
+    <account id="1">10000</account>
+  </symbol>
+  <symbol sym="B">
+    <account id="1">10000</account>
+  </symbol>
+  <symbol sym="A">
+    <account id="1">10000</account>
+  </symbol>
+  <symbol sym="A">
+    <account id="2">10000</account>
+  </symbol>
+ <symbol sym="B">
+    <account id="2">10000</account>
+  </symbol>
+  <symbol sym="C">
+    <account id="3">10000</account>
+  </symbol>
+  <symbol sym="A">
+    <account id="4">10000</account>
+  </symbol>
+  <symbol sym="B">
+    <account id="4">10000</account>
+  </symbol>
+  
+</create>

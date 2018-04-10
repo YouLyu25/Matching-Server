@@ -1,0 +1,22 @@
+The port for connection is set to "12345"
+
+to run the docker, use: "sudo docker-compose up"
+
+if something wrong happends during docker up, please try: "sudo docker-compose build" first
+or if the first time client cannot connect to the docker, try start it again using
+"sudo docker-compose up"
+
+also, if there are changes in the code and the user want to re-make, he/she needs to
+change current directory to ./exchange_server, and then do "make" which will generate binary
+file "server", then he/she would be able to run "sudo docker-compose up"
+
+Also, the run of this program depends on the boost library. If no boost library is included
+in this directory and the user accidentally removed the binary "server", he/she may have to
+use "wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
+then "tar --bzip2 -xf boost_1_66_0.tar.bz2" and
+enter directory "boost_1_66_0"
+then "./bootstrap.sh --with-libraries=all --with-toolset=gcc"
+then "./b2 toolset=gcc"
+then "./b2 install --prefix=/usr"
+finally "sudo ldconfig"
+and then re-make the program, then use sudo docker-compose up to steart the docker.

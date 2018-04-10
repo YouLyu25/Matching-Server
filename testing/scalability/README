@@ -1,0 +1,62 @@
+This document is written for providing a general guide of how to use the
+testing infrastructure in each test*/ directory to test the scalability
+of the matching server.
+
+There are test cases for testing the scalability.
+The first 5 tests are performed under indentical number of competing requests
+while the factor that varies is the maximum number of program thread.
+In these tests, the number of competing requests is fixed to 1000 level.
+Test6 to test9 are tests where maximum number of threads, namely the computing
+resource, is fixed while the number of competing requests is the varing factor.
+
+test1 uses 1 thread, test2 uses 2 threads, test3 uses 4 threas, test4 uses 8
+threads and test5 uses 16 threads. The client side of these test cases will
+send more than 1000 requests at a time containing various of operations like
+<order>, <query> and <cancel>.
+
+test6 to test9 contains tests for fixed number of threads (which is 8) and
+varing number of requests sent at a time. In these tests, the requests sent at
+a time varies from 2 to 10 to 100 and finally to more than 1000.
+
+
+
+
+
+
+/***********************************************************************************
+For client side:
+To run the tests, simply enter the test1 to test9 directories, run ./test.sh.
+NOTE: the server's address is hardcoded into the source code of testing program
+which is client.cpp, to run test cases, the user may change the server's address
+to the current one and re-make the source code to get a new "client" binary.
+Also, the test cases should be run on a machine other than the server's current
+machine for working correctly.
+
+For server side:
+replace the "server" binary in "exchange_server" directory with the "server" binary
+in each test case directory. For example, if the user would like to run test case 4
+where the server will use 8 threads, he/she will need to replace "exchange_server/server"
+with the server binary in the current test case directory.
+That is because each test directory contains a corresponding already-generated prorgam
+which enables different number of threads.
+
+After these, do:
+1. use "sudo docker-compose up" to start the server
+2. run ./test.sh on another machine to start the testing
+3. check printed "execution time of task: " message from server or "time: " message
+from client to check the timing.
+/***********************************************************************************
+
+
+
+
+
+For the results, test1 to test5, the results will be printed on the server
+side indicating "execution time of task: XXXX", which represents the time
+consumed for each task to be completed (note that each task is one operation
+indicated by one child node of <transaction> root XML node, see details in
+report.tex).
+
+For test6 to test9, the results will be printed on the client's side where
+there will be "time: XXXX" which indicates the time interval between sending
+the request and receiving the response.
